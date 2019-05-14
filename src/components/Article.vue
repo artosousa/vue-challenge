@@ -22,10 +22,12 @@
                 <div class="article-content-comments-count">
                      {{ this.post.comments_count}} Comments
                 </div>
-                <div class="article-content-comments-items" v-for="comment in this.post.comments">
+                <div class="article-content-comments-items" v-for="comment in this.post.comments" v-bind:key="comment.articleId" >
                     <p class="article-content-comments-item-details"><strong>{{ comment.user}}</strong> <br/> <em>{{ comment.time_ago}}</em>:</p>
                     <div class="comment-content" v-html="comment.content"></div>
                 </div>
+
+                
             </div>
         </div>
     </div>
@@ -50,7 +52,8 @@
         created () {
             this.loadPost().then(({data}) => {
                 this.post = data
-                console.log(this.post.comments)
+                console.log(this.post.comments.content)
+                
             })
         }
     }

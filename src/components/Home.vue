@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    fsdkjldsjdfslkjdfsldjsflkdsfjldsfkjl
+    <h1>{{ Title }}</h1>
+    <p> {{ msg }}</p>
   </div>
 </template>
 
@@ -10,7 +10,8 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to my Vue.js Challenge'
+      Title: `Welcome to Arthur's Vue.js Challenge`,
+      msg: `Use navigation above to see experience completed challenges`
     }
   }
 }
