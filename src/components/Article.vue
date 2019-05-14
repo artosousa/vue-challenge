@@ -60,6 +60,7 @@
         }
     }
 </script>
+
 <style scroped lang="scss">
     .article{
         max-width: 650px;
