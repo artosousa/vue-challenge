@@ -34,5 +34,7 @@ export default {
 }
 </script>
 <style scoped>
-
+    h1{
+        padding-bottom: 25px;
+    }
 </style>

@@ -8,6 +8,7 @@
             <router-link to="/random-cat">Random Kitty</router-link>
         </div>
     </header>
+    
 </template>
 <script>
     import Logo from './Logo'
@@ -23,8 +24,11 @@
     .header{
         color: green;
         text-align: center;
-        padding: 10px;
-
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #ececec;
     }
-  
+    a{
+        display: inline;
+    }  
 </style>
