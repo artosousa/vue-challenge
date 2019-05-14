@@ -24,5 +24,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  
 }
+a{
+    color: green;
+    padding-right: 5px;
+    text-decoration: none;
+    display: block;
+  }
+  a:visited{
+    color: green;
+  }
 </style>

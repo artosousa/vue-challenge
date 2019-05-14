@@ -24,15 +24,7 @@
         color: green;
         text-align: center;
         padding: 10px;
-        
-        a{
-            color: green;
-            padding-right: 5px;
-            text-decoration: none;
-        }
-        a:visited{
-            color: green;
-        }
+
     }
   
 </style>
