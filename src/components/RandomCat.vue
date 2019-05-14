@@ -2,7 +2,7 @@
     <div class="kitty-content">
         <h1> {{ msg}} </h1>
         <div id="cat-imgs">
-            <img v-bind:src="catImg">
+            <img v-bind:src="catImg" @error="fetchImg">
         </div>
         <button @click="fetchImg">{{ btnText }}</button>
     </div>
@@ -14,11 +14,6 @@
     import axios from 'axios';
     export default {
         name: 'RandomCat',
-        beforeMount (){
-            axios.get(catUrl)
-                .then(res => this.catImg = res.data.file)
-                .catch(err => console.log(err));
-        },
         data () {
             return{
                 msg: 'Random Cat Generator',

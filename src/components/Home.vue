@@ -11,7 +11,7 @@ export default {
   data () {
     return {
       Title: `Welcome to Arthur's Vue.js Challenge`,
-      msg: `Use navigation above to see experience completed challenges`
+      msg: `Use navigation above to experience completed challenges`
     }
   }
 }
