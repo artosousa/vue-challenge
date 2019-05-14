@@ -11,7 +11,8 @@
 <style scoped lang="scss">
     .logo {
         img{
-            max-width: 300px;
+            max-width: 200px;
+            height: auto;
             position: relative;
             margin:0px auto;
         } 
