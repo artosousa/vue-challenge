@@ -2,7 +2,7 @@
     <div class="kitty-content">
         <h1> {{ msg}} </h1>
         <div id="cat-imgs">
-            <img v-bind:src="catImg" @error="fetchImg">
+            <img v-bind:src="catImg" @error="fetchImg" @click="fetchImg">
         </div>
         <button @click="fetchImg">{{ btnText }}</button>
     </div>
@@ -44,6 +44,7 @@
             img{
                 width: 100%;
                 height: auto;
+                cursor: pointer;
             }
         }
         button{
@@ -64,9 +65,12 @@
             box-sizing: border-box;
             border: 5px solid #429000;
 
-            &:active{
+            &:hover{
                 background-color: #396a0f;
                 border: 5px solid #396a0f;
+            }
+            &:active{
+                margin-top: 21px;
             }
         }
     }

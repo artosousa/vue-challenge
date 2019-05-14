@@ -2,17 +2,22 @@
     <div class="news-item" >
         <router-link :to="{ name: 'Article', params: { articleId: article.id }}">
             <h2>{{ article.title }}</h2>
-            <small>Article by: <strong>{{ article.user }}</strong> | Posted: {{ article.time }}</small>
+            <small>{{ article.points }} points | Article by: <strong>{{ article.user }}</strong> | Posted:  {{ moment.unix(article.time).format('DD/MM/YYYY') }} | Source: {{ article.domain }}</small>
         </router-link>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'HackerNewsItem',
-    props: ["article"]
-}
-
+    const moment = require('moment')
+    export default {
+        name: 'HackerNewsItem',
+        props: ["article"],
+        data() {
+            return{
+                moment:moment
+            }
+        }
+    }
 </script>
 <style scoped lang="scss">
     .news-item{

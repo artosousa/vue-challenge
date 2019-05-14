@@ -5,7 +5,7 @@
                 <h1>{{ this.post.title }}</h1>
             </div>
             <div class="article-details-meta">
-                by: <strong>{{ this.post.user }}</strong> | {{ this.post.time_ago}} | Type of post: {{ this.post.type }} | Article Score: {{ this.post.points }} | Source: {{ this.post.domain }}
+                {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('DD/MM/YYYY') }}, {{ this.post.time_ago}} | Source: {{ this.post.domain }}
             </div>
         
         </div>
@@ -33,13 +33,15 @@
     </div>
 </template>
 <script>
+    const moment = require('moment')
     import axios from 'axios';
     export default {
         name: 'Article',
         props: ["articleId"],
         data () {
             return {
-                post: null
+                post: null,
+                moment:moment
             }
         },
         methods: {
@@ -53,7 +55,7 @@
             this.loadPost().then(({data}) => {
                 this.post = data
                 console.log(this.post.comments.content)
-                
+
             })
         }
     }
