@@ -14,7 +14,7 @@
     import axios from 'axios';
     export default {
         name: 'RandomCat',
-        beforeCreated (){
+        beforeMount (){
             axios.get(catUrl)
                 .then(res => this.catImg = res.data.file)
                 .catch(err => console.log(err));
