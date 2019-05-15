@@ -2,13 +2,14 @@
     <div class="news-item" >
         <router-link :to="{ name: 'Article', params: { articleId: article.id }}">
             <h2>{{ article.title }}</h2>
-            <small>{{ article.points }} points | Article by: <strong>{{ article.user }}</strong> | Posted:  {{ moment.unix(article.time).format('DD/MM/YYYY') }} | Source: {{ article.domain }}</small>
+            <small>{{ article.points }} points | Article by: <strong>{{ article.user }}</strong> | Posted:  {{ moment.unix(article.time).format('MMM Do YYYY') }} | Source: {{ article.domain }}</small>
         </router-link>
     </div>
 </template>
 
 <script>
     const moment = require('moment')
+    const timeAgoNum = " "
     export default {
         name: 'HackerNewsItem',
         props: ["article"],

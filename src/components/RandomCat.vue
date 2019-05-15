@@ -14,6 +14,9 @@
     import axios from 'axios';
     export default {
         name: 'RandomCat',
+        created() {
+            fetchImg
+        },
         data () {
             return{
                 msg: 'Random Cat Generator',
