@@ -7,7 +7,6 @@
             <div class="article-details-meta">
                 {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('MMM Do YYYY') }}, {{ this.post.time_ago}} | Source: {{ this.post.domain }}
             </div>
-        
         </div>
         <div class="article-content">
             {{ this.post.content }}
@@ -17,12 +16,11 @@
                     {{ this.post.url }}<br />
                 </a>
             </p>
-
             <div class="article-content-comments">
                 <div class="article-content-comments-count">
-                    Comments
+                    {{ this.post.comments_count }}Comments
                 </div>
-                <Comments :label="tree.label" :nodes="tree.nodes" :depth="0"></Comments>
+                <Comments :content="tree.comments" :comments="tree.content.comments" :depth="0"></Comments>
             </div>
             
             <pre><code>{{ this.post.comments }}</code></pre>
@@ -40,30 +38,7 @@
             return {
                 post: null,
                 moment:moment,
-                tree: {
-                    label: 'root',
-                    nodes: [
-                        {
-                        label: 'item1',
-                        nodes: [
-                            {
-                            label: 'item1.1'
-                            },
-                            {
-                            label: 'item1.2',
-                            nodes: [
-                                {
-                                label: 'item1.2.1'
-                                }
-                            ]
-                            }
-                        ]
-                        }, 
-                        {
-                        label: 'item2'  
-                        }
-                    ]
-                }
+                tree: null
             }
         },
         methods: {
@@ -75,6 +50,8 @@
         created () {
             this.loadPost().then(({data}) => {
                 this.post = data
+                this.tree = this.post
+                console.log(this.tree)
             })
         },
         components:{

@@ -1,10 +1,10 @@
 <template>
   <div class="tree-menu">
-    <div :style="indent">{{ label }}</div>
+    <div :style="indent">{{ content }}</div>
     <Comments
-      v-for="node in nodes" 
-      :nodes="node.nodes" 
-      :label="node.label"
+      v-for="comment in comments" 
+      :comments="comment.comments" 
+      :content="comments.content"
       :depth=" depth + 1"
     >
     </Comments>
@@ -12,7 +12,7 @@
 </template>
 <script>
   export default { 
-    props: [ 'label', 'nodes', 'depth' ],
+    props: [ 'content', 'comments', 'depth' ],
     name: 'Comments',
     computed: {
       indent() {
