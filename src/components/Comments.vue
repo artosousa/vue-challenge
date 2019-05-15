@@ -1,10 +1,10 @@
 <template>
   <div class="tree-menu">
-    <div :style="indent">{{ content }}</div>
+    <div :style="indent">{{ parent_comments }}</div>
     <Comments
-      v-for="comment in comments" 
-      :comments="comment.comments" 
-      :content="comments.content"
+      v-for="child_comment in child_comments" 
+      :child_comments="child_comment.child_comments" 
+      :parent_comments="child_comments.parent_comments"
       :depth=" depth + 1"
     >
     </Comments>
@@ -12,7 +12,7 @@
 </template>
 <script>
   export default { 
-    props: [ 'content', 'comments', 'depth' ],
+    props: [ 'parent_comments', 'child_comments', 'depth' ],
     name: 'Comments',
     computed: {
       indent() {

@@ -18,9 +18,9 @@
             </p>
             <div class="article-content-comments">
                 <div class="article-content-comments-count">
-                    {{ this.post.comments_count }}Comments
+                    {{ this.post.comments_count }} Comments
                 </div>
-                <Comments :content="tree.comments" :comments="tree.content.comments" :depth="0"></Comments>
+                <Comments :parent_comments="post.child_comments" :child_comments="post.child_comments" :depth="0"></Comments>
             </div>
             
             <pre><code>{{ this.post.comments }}</code></pre>
@@ -37,8 +37,7 @@
         data () {
             return {
                 post: null,
-                moment:moment,
-                tree: null
+                moment:moment
             }
         },
         methods: {
@@ -50,8 +49,7 @@
         created () {
             this.loadPost().then(({data}) => {
                 this.post = data
-                this.tree = this.post
-                console.log(this.tree)
+                console.log(this.post)
             })
         },
         components:{
