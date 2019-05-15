@@ -17,27 +17,29 @@
                     {{ this.post.url }}<br />
                 </a>
             </p>
-
             <div class="article-content-comments">
                 <div class="article-content-comments-count">
                     Comments
-                </div>
+                </div> 
                 <div class="article-content-comments-items" v-for="comment in this.post.comments" v-bind:key="comment.articleId" >
-                    <p class="article-content-comments-item-details"><strong>{{ comment.user}}</strong> <br/> <em>{{ comment.time_ago}}</em>:</p>
-                    <div class="comment-content" v-html="comment.content"></div>
+                    <Comments v-bind:comment="comment"></Comments>
                 </div>
-
-                
             </div>
+            
         </div>
+        <pre><code>{{ this.post.comments }}</code></pre>
     </div>
 </template>
 <script>
     const moment = require('moment')
+    import Comments from './Comments';
     import axios from 'axios'
     export default {
         name: 'Article',
         props: ["articleId"],
+        components: {
+            Comments
+        },
         data () {
             return {
                 post: null,
@@ -104,23 +106,39 @@
                         margin: 10px 0px;
                         font-size: 14px;
                     }
+                    pre {
+                        width: 100%;
+                        white-space: pre-wrap;
+                        padding: 15px 5px;
+                        background: #333333;
+                        margin: 25px 0px ;
+                        color:orange;
+                        text-align:left;
+                        code{
+                            color:orange;
+                            border-radius: 5px;
+                            -moz-border-radius: 5px;
+                            -webkit-border-radius: 5px;
+                        }
+                    }
                 }
             }
         }
     }
     pre {
-        
-        width: 90%;
+        width: 100%;
         white-space: pre-wrap;
         padding: 15px 5px;
-        background: #333333;
-        margin: 25px 0px 25px 5%;
-
+        margin: 25px 0px ;
+        background:none;
+        color:666;
+        text-align:left;
         code{
-            color:orange;
+            color:666;
             border-radius: 5px;
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
+            text-align:left;
         }
     }
     
