@@ -17,39 +17,58 @@
                     {{ this.post.url }}<br />
                 </a>
             </p>
+
             <div class="article-content-comments">
                 <div class="article-content-comments-count">
                     Comments
-                </div> 
-                <div class="article-content-comments-items" v-for="comment in this.post.comments" v-bind:key="comment.articleId" >
-                    <Comments v-bind:comment="comment"></Comments>
                 </div>
+                <Comments :label="tree.label" :nodes="tree.nodes" :depth="0"></Comments>
             </div>
             
+            <pre><code>{{ this.post.comments }}</code></pre>
         </div>
-        <pre><code>{{ this.post.comments }}</code></pre>
     </div>
 </template>
 <script>
     const moment = require('moment')
-    import Comments from './Comments';
     import axios from 'axios'
+    import Comments from './Comments'
     export default {
         name: 'Article',
         props: ["articleId"],
-        components: {
-            Comments
-        },
         data () {
             return {
                 post: null,
-                moment:moment
+                moment:moment,
+                tree: {
+                    label: 'root',
+                    nodes: [
+                        {
+                        label: 'item1',
+                        nodes: [
+                            {
+                            label: 'item1.1'
+                            },
+                            {
+                            label: 'item1.2',
+                            nodes: [
+                                {
+                                label: 'item1.2.1'
+                                }
+                            ]
+                            }
+                        ]
+                        }, 
+                        {
+                        label: 'item2'  
+                        }
+                    ]
+                }
             }
         },
         methods: {
             loadPost() {
                 const articleUrl = 'https://api.hnpwa.com/v0/item/' + this.$route.params.articleId + '.json';
-                
                 return axios.get(articleUrl)
             }
         },
@@ -57,6 +76,9 @@
             this.loadPost().then(({data}) => {
                 this.post = data
             })
+        },
+        components:{
+            Comments
         }
     }
 </script>
@@ -80,7 +102,7 @@
             border-top: 1px solid #ececec;
             padding-top:25px;
             margin-top: 25px;
-
+            text-align: left;
             .article-content-comments-count{
                 margin-bottom: 15px;
                 font-weight: bold;
