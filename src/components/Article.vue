@@ -5,7 +5,7 @@
                 <h1>{{ this.post.title }}</h1>
             </div>
             <div class="article-details-meta">
-                {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('MMM Do YYYY') }} | Source: {{ this.post.domain }}
+                {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('MMM Do YYYY') }}, {{ this.post.time_ago}} | Source: {{ this.post.domain }}
             </div>
         
         </div>
@@ -20,7 +20,7 @@
 
             <div class="article-content-comments">
                 <div class="article-content-comments-count">
-                     {{ this.post.comments_count}} Comments
+                    Comments
                 </div>
                 <div class="article-content-comments-items" v-for="comment in this.post.comments" v-bind:key="comment.articleId" >
                     <p class="article-content-comments-item-details"><strong>{{ comment.user}}</strong> <br/> <em>{{ comment.time_ago}}</em>:</p>
@@ -34,7 +34,7 @@
 </template>
 <script>
     const moment = require('moment')
-    import axios from 'axios';
+    import axios from 'axios'
     export default {
         name: 'Article',
         props: ["articleId"],
@@ -54,8 +54,6 @@
         created () {
             this.loadPost().then(({data}) => {
                 this.post = data
-                console.log(this.post.comments.content)
-
             })
         }
     }
