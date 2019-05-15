@@ -5,7 +5,7 @@
                 <h1>{{ this.post.title }}</h1>
             </div>
             <div class="article-details-meta">
-                {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('DD/MM/YYYY') }}, {{ this.post.time_ago}} | Source: {{ this.post.domain }}
+                {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('MMM Do YYYY') }} | Source: {{ this.post.domain }}
             </div>
         
         </div>
