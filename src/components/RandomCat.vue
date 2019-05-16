@@ -2,8 +2,8 @@
     <div class="kitty-content">
         <h1> {{ msg}} </h1>
         <div id="cat-imgs">
-            <p v-if="!catImg">Loading Kitty...</p>
-            <img v-else v-bind:src="catImg" @click="fetchImg">
+            <span v-if="!catImg" > Loadding Kitten ...</span>
+            <img class="full-width" v-else v-bind:src="catImg" @click="fetchImg">
         </div>
         <button @click="fetchImg">{{ btnText }}</button>
     </div>
@@ -43,13 +43,15 @@ export default {
             padding-bottom: 15px;
         }
         #cat-imgs{
-            width: 100%;
             position: relative;
             margin: 0px auto;
-            img{
+            img.full-width{
                 width: 100%;
                 height: auto;
                 cursor: pointer;
+            }
+            img.loading{
+              width:200px !important;
             }
         }
         button{
