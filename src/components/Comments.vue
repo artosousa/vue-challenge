@@ -13,6 +13,7 @@
       :comments="comment.comments" 
       :content="comment.content"
       :depth=" depth + 1"
+      :key="comment.id"
     >
     </Comments>
   </div>
@@ -51,6 +52,9 @@
       padding-bottom: 10px;
       width: 100%;
       border-bottom: 1px solid #d9d9d9;
+    }
+    .tree-menu-comment{
+      background:#e9e9e9;
     }
   }
   

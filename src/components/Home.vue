@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <div class="vid">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/9pOo4rf544A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class='embed-container'>
+        <iframe src='https://www.youtube.com/embed/undefined' frameborder='0' allowfullscreen></iframe>
+      </div>
     </div>
     <h1>{{ Title }}</h1>
     <p> {{ msg }}</p>
@@ -21,7 +23,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style >
+<style lang="scss">
   h1, h2 {
     font-weight: normal;
   }
@@ -40,5 +42,25 @@ export default {
     max-width: 650px;
     position: relative;
     margin: 0px auto 25px auto;
+
+    .embed-container { 
+      position: relative; 
+      padding-bottom: 56.25%; 
+      height: 0; 
+      overflow: hidden; 
+      max-width: 100%; 
+
+      
+    } 
+    .embed-container iframe, 
+      .embed-container object, 
+      .embed-container embed { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+      }
   }
+  
 </style>

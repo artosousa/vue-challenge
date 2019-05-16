@@ -2,7 +2,7 @@
     <div class="news-item" >
         <router-link :to="{ name: 'Article', params: { articleId: article.id }}">
             <h2>{{ article.title }}</h2>
-            <small>{{ article.points }} points | Article by: <strong>{{ article.user }}</strong> | Posted:  {{ moment.unix(article.time).format('MMM Do YYYY') }} | Source: {{ article.domain }}</small>
+            <small>{{ article.points }} points | Article by: <strong>{{ article.user }}</strong> | Posted:  {{ moment.unix(article.time).format('MMM Do YYYY') }} | Source: {{ article.domain }} | Comments: {{ article.comments_count }} </small>
         </router-link>
     </div>
 </template>

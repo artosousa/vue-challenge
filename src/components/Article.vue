@@ -22,7 +22,7 @@
                 <div class="article-content-comments-count">
                     {{ this.post.comments_count }}   Comments
                 </div>
-                <Comments :content="this.tree.comment" :comments="this.tree.comments" :username="this.tree.user" :depth="0"></Comments>
+                <Comments :content="this.tree.comments.content" :comments="this.tree.comments" :username="this.tree.comments.user" :depth="-1"></Comments>
             </div>
             
             <pre><code>{{ this.post.comments }}</code></pre>
@@ -53,9 +53,8 @@
             this.loadPost().then(({data}) => {
                 this.post = data
                 this.tree = this.post
-                this.tree.shift()
-                console.log(this.tree)
             })
+
         },
         components:{
             Comments
