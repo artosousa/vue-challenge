@@ -57,4 +57,7 @@ export default {
       background:#e9e9e9;
     }
   }
+  .tree-menu:first-child{
+    display:none;
+  }
 </style>

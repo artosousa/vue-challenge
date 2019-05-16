@@ -2,7 +2,8 @@
     <div class="kitty-content">
         <h1> {{ msg}} </h1>
         <div id="cat-imgs">
-            <img v-bind:src="catImg" @error="fetchImg" @click="fetchImg">
+            <p v-if="!catImg">Loading Kitty...</p>
+            <img v-else v-bind:src="catImg" @click="fetchImg">
         </div>
         <button @click="fetchImg">{{ btnText }}</button>
     </div>
@@ -13,20 +14,21 @@ import axios from 'axios'
 const catUrl = 'https://aws.random.cat/meow'
 export default {
   name: 'RandomCat',
-  created () {
-    fetchImg
+  beforeMount () {
+    this.fetchImg()
   },
   data () {
     return {
       msg: 'Random Cat Generator',
       btnText: 'More Kittens!',
-      catImg: {},
+      catImg: '',
       fetchImg: () => {
         axios.get(catUrl)
           .then(res => {
             this.catImg = res.data.file
           })
           .catch(err => console.log(err))
+        console.log('ive been clicked')
       }
     }
   }

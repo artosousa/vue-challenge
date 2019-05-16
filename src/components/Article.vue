@@ -23,7 +23,7 @@
                 </div>
                 <Comments :content="this.tree.comments.content" :comments="this.tree.comments" :username="this.tree.comments.user" :depth="-1"></Comments>
             </div>
-            <pre><code>{{ this.post.comments }}</code></pre>
+            <pre><code>{{ this.post }}</code></pre>
         </div>
     </div>
 </template>
