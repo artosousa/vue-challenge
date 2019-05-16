@@ -2,7 +2,7 @@
     <div class="kitty-content">
         <h1> {{ msg}} </h1>
         <div id="cat-imgs">
-            <span v-if="!catImg" > Loadding Kitten ...</span>
+            <span v-if="!catImg" > Loading Kitten ...</span>
             <img class="full-width" v-else v-bind:src="catImg" @click="fetchImg">
         </div>
         <button @click="fetchImg">{{ btnText }}</button>
