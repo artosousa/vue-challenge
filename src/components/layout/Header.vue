@@ -8,18 +8,16 @@
             <router-link to="/random-cat">Random Kitty</router-link>
         </div>
     </header>
-    
 </template>
 <script>
-    import Logo from './Logo'
-    export default {
-        name: "Header",
-        components: {
-            Logo
-        }
-    }
+import Logo from './Logo'
+export default {
+  name: 'Header',
+  components: {
+    Logo
+  }
+}
 </script>
-
 <style scoped lang="scss">
     .header{
         color: green;
@@ -30,5 +28,5 @@
     }
     a{
         display: inline;
-    }  
+    }
 </style>

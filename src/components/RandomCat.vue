@@ -9,26 +9,27 @@
 </template>
 
 <script>
-    const catUrl = 'https://aws.random.cat/meow'
-    
-    import axios from 'axios';
-    export default {
-        name: 'RandomCat',
-        created() {
-            fetchImg
-        },
-        data () {
-            return{
-                msg: 'Random Cat Generator',
-                btnText: 'More Kittens!',
-                catImg: {},
-                fetchImg: () => {
-                    axios.get(catUrl)
-                        .then(res => this.catImg = res.data.file)
-                        .catch(err => console.log(err));
-                }
-            }
-        }
+import axios from 'axios'
+const catUrl = 'https://aws.random.cat/meow'
+export default {
+  name: 'RandomCat',
+  created () {
+    fetchImg
+  },
+  data () {
+    return {
+      msg: 'Random Cat Generator',
+      btnText: 'More Kittens!',
+      catImg: {},
+      fetchImg: () => {
+        axios.get(catUrl)
+          .then(res => {
+            this.catImg = res.data.file
+          })
+          .catch(err => console.log(err))
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
@@ -40,10 +41,9 @@
             padding-bottom: 15px;
         }
         #cat-imgs{
-            with: 100%;
+            width: 100%;
             position: relative;
             margin: 0px auto;
-
             img{
                 width: 100%;
                 height: auto;

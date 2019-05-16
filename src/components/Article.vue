@@ -7,12 +7,11 @@
             <div class="article-details-meta">
                 {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('MMM Do YYYY') }}, {{ this.post.time_ago}} | Source: {{ this.post.domain }}
             </div>
-        
         </div>
         <div class="article-content">
             {{ this.post.content }}
             <p>
-                Click here to read full article 
+                Click here to read full article
                 <a v-bind:href="this.post.url" target="_blank" v-bind:title="this.post.title">
                     {{ this.post.url }}<br />
                 </a>
@@ -24,44 +23,41 @@
                 </div>
                 <Comments :content="this.tree.comments.content" :comments="this.tree.comments" :username="this.tree.comments.user" :depth="-1"></Comments>
             </div>
-            
             <pre><code>{{ this.post.comments }}</code></pre>
         </div>
     </div>
 </template>
 <script>
-    const moment = require('moment')
-    import axios from 'axios'
-    import Comments from './Comments'
-    export default {
-        name: 'Article',
-        props: ["articleId"],
-        data () {
-            return {
-                post: null,
-                moment:moment,
-                tree: null
-            }
-        },
-        methods: {
-            loadPost() {
-                const articleUrl = 'https://api.hnpwa.com/v0/item/' + this.$route.params.articleId + '.json';
-                return axios.get(articleUrl)
-            }
-        },
-        created () {
-            this.loadPost().then(({data}) => {
-                this.post = data
-                this.tree = this.post
-            })
-
-        },
-        components:{
-            Comments
-        }
+import axios from 'axios'
+import Comments from './Comments'
+const moment = require('moment')
+export default {
+  name: 'Article',
+  props: ['articleId'],
+  data () {
+    return {
+      post: null,
+      moment: moment,
+      tree: null
     }
+  },
+  methods: {
+    loadPost () {
+      const articleUrl = 'https://api.hnpwa.com/v0/item/' + this.$route.params.articleId + '.json'
+      return axios.get(articleUrl)
+    }
+  },
+  created () {
+    this.loadPost().then(({data}) => {
+      this.post = data
+      this.tree = this.post
+    })
+  },
+  components: {
+    Comments
+  }
+}
 </script>
-
 <style scroped lang="scss">
     .article{
         max-width: 650px;
@@ -90,7 +86,6 @@
                 background: #fbf9f9;
                 padding:20px;
                 margin-bottom: 25px;
-
                 .article-content-comments-item-details{
                     margin-bottom:10px;
                     text-align: left;
@@ -107,7 +102,7 @@
                         margin: 10px 0px;
                         font-size: 14px;
                     }
-                    pre {
+                    pre{
                         width: 100%;
                         white-space: pre-wrap;
                         padding: 15px 5px;
@@ -142,7 +137,4 @@
             text-align:left;
         }
     }
-    
 </style>
-
-

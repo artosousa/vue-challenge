@@ -4,9 +4,9 @@
     </div>
 </template>
 <script>
-    export default {
-        name: 'Logo'
-    }
+export default {
+  name: 'Logo'
+}
 </script>
 <style scoped lang="scss">
     .logo {
@@ -15,8 +15,6 @@
             height: auto;
             position: relative;
             margin:0px auto;
-        } 
+        }
     }
 </style>
-
-

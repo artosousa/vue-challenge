@@ -6,11 +6,11 @@
 
       <div class="tree-menu-comment" v-html="content"></div>
     </div>
-    <Comments 
+    <Comments
       v-for="comment in comments"
       :username="comment.user"
       :date="comment.time"
-      :comments="comment.comments" 
+      :comments="comment.comments"
       :content="comment.content"
       :depth=" depth + 1"
       :key="comment.id"
@@ -19,21 +19,23 @@
   </div>
 </template>
 <script>
-  const moment = require('moment')
-  export default { 
-    props: [ 'content', 'comments', 'username', 'date', 'depth' ],
-    data () {
-        return {
-            moment:moment
-        }
-    },
-    name: 'Comments',
-    computed: {
-      indent() {
-        return { margin: `0px 0px 0px ${this.depth * 10}px` }
+const moment = require('moment')
+export default {
+  props: [ 'content', 'comments', 'username', 'date', 'depth' ],
+  data () {
+    return {
+      moment: moment
+    }
+  },
+  name: 'Comments',
+  computed: {
+    indent () {
+      return {
+        margin: `0px 0px 0px ${this.depth * 10}px`
       }
     }
   }
+}
 </script>
 <style scoped lang="scss">
   .tree-menu{
@@ -41,8 +43,6 @@
     background:#e9e9e9;
     font-size: 14px;
     line-height: 18px;
-
-    
     .tree-menu-comment-username{
       margin: 0px;
     }
@@ -57,6 +57,4 @@
       background:#e9e9e9;
     }
   }
-  
-  
 </style>

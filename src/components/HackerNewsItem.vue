@@ -8,29 +8,26 @@
 </template>
 
 <script>
-    const moment = require('moment')
-    const timeAgoNum = " "
-    export default {
-        name: 'HackerNewsItem',
-        props: ["article"],
-        data() {
-            return{
-                moment:moment
-            }
-        }
+const moment = require('moment')
+export default {
+  name: 'HackerNewsItem',
+  props: ['article'],
+  data () {
+    return {
+      moment: moment
     }
+  }
+}
 </script>
 <style scoped lang="scss">
     .news-item{
         padding-bottom:20px;
         border-bottom: 1px dashed #e9e9e9;
         padding-top: 20px;
-        
         h2{
             padding: 0px;
             margin: 0px;
         }
-
         &:hover{
             cursor: pointer;
             background:lemonchiffon;

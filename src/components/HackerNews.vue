@@ -9,26 +9,26 @@
 </template>
 
 <script>
-import HackerNewsItem from './HackerNewsItem.vue';
-import axios from 'axios';
-
-const apiUrl = 'https://api.hnpwa.com/v0/news/1.json';
-
+import HackerNewsItem from './HackerNewsItem.vue'
+import axios from 'axios'
+const apiUrl = 'https://api.hnpwa.com/v0/news/1.json'
 export default {
-    name: 'HackerNews',
-    components: {
-        HackerNewsItem
-    },
-    data() {
-        return {
-            articles: []
-        }
-    },
-    created() {
-        axios.get(apiUrl)
-        .then(res => this.articles = res.data.slice(0, 25))
-        .catch(err => console.log(err));
+  name: 'HackerNews',
+  components: {
+    HackerNewsItem
+  },
+  data () {
+    return {
+      articles: []
     }
+  },
+  created () {
+    axios.get(apiUrl)
+      .then(res => {
+        this.articles = res.data.slice(0, 25)
+      })
+      .catch(err => console.log(err))
+  }
 }
 </script>
 <style scoped>

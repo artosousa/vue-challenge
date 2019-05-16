@@ -16,27 +16,25 @@ export default {
 </script>
 
 <style>
-*{
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 2px;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-
-  
-}
-a{
-    color: green;
-    padding-right: 5px;
-    text-decoration: none;
-    display: block;
+  *{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 2px;
   }
-  a:visited{
-    color: green;
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
   }
+  a{
+      color: green;
+      padding-right: 5px;
+      text-decoration: none;
+      display: block;
+    }
+    a:visited{
+      color: green;
+    }
 </style>
