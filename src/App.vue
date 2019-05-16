@@ -19,7 +19,7 @@ export default {
 *{
   box-sizing: border-box;
   margin: 0px;
-  padding: 0px;
+  padding: 2px;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

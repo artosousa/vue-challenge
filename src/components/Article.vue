@@ -7,6 +7,7 @@
             <div class="article-details-meta">
                 {{ this.post.points }} points | by: <strong>{{ this.post.user }}</strong> | Posted:  {{ moment.unix(this.post.time).format('MMM Do YYYY') }}, {{ this.post.time_ago}} | Source: {{ this.post.domain }}
             </div>
+        
         </div>
         <div class="article-content">
             {{ this.post.content }}
@@ -16,11 +17,12 @@
                     {{ this.post.url }}<br />
                 </a>
             </p>
+
             <div class="article-content-comments">
                 <div class="article-content-comments-count">
-                    {{ this.post.comments_count }} Comments
+                    {{ this.post.comments_count }}   Comments
                 </div>
-                <Comments :parent_comments="post.child_comments" :child_comments="post.child_comments" :depth="0"></Comments>
+                <Comments :content="this.tree.comment" :comments="this.tree.comments" :depth="0"></Comments>
             </div>
             
             <pre><code>{{ this.post.comments }}</code></pre>
@@ -37,7 +39,8 @@
         data () {
             return {
                 post: null,
-                moment:moment
+                moment:moment,
+                tree: null
             }
         },
         methods: {
@@ -49,7 +52,7 @@
         created () {
             this.loadPost().then(({data}) => {
                 this.post = data
-                console.log(this.post)
+                this.tree = this.post
             })
         },
         components:{
