@@ -27,7 +27,6 @@ export default {
     created() {
         axios.get(apiUrl)
         .then(res => this.articles = res.data.slice(0, 25))
-        .then(res => console.log(this.articles))
         .catch(err => console.log(err));
     }
 }

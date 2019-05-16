@@ -22,7 +22,7 @@
                 <div class="article-content-comments-count">
                     {{ this.post.comments_count }}   Comments
                 </div>
-                <Comments :content="this.tree.comment" :comments="this.tree.comments" :depth="0"></Comments>
+                <Comments :content="this.tree.comment" :comments="this.tree.comments" :username="this.tree.user" :depth="0"></Comments>
             </div>
             
             <pre><code>{{ this.post.comments }}</code></pre>
