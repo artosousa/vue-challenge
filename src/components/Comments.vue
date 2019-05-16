@@ -47,11 +47,10 @@
     }
     .tree-menu-comment-date{
       font-size: 12px;
-      margin:0px;
+      margin:-6px 0px 10px 0px;
       padding-bottom: 10px;
       width: 100%;
       border-bottom: 1px solid #d9d9d9;
-      margin-top: -6px;
     }
   }
   

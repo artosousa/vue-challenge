@@ -53,6 +53,7 @@
             this.loadPost().then(({data}) => {
                 this.post = data
                 this.tree = this.post
+                this.tree.shift()
                 console.log(this.tree)
             })
         },
