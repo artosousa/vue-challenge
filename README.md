@@ -1,6 +1,6 @@
-# vue-test
+# Vue Test by Arthur Sousa - @artosousa
 
-> Verda Test for fronend dev position
+> Verda Vue.js Challenge
 
 ## Build Setup
 
