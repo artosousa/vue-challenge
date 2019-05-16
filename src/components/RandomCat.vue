@@ -36,7 +36,7 @@ export default {
 </script>
 <style scoped lang="scss">
     .kitty-content{
-        max-width: 650px;
+        max-width: 860px;
         position: relative;
         margin: 0px auto;
         h1{

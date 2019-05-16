@@ -1,10 +1,9 @@
 <template>
   <div class="tree-menu">
     <div :style="indent" class="tree-menu-comment-content" >
-      <div class="tree-menu-comment-username"> <strong>{{ username }} </strong></div>
-      <div class="tree-menu-comment-date"><em>{{ moment.unix(date).format('MMM Do YYYY') }}</em></div>
-
-      <div class="tree-menu-comment" v-html="content"></div>
+      <div v-if="username" class="tree-menu-comment-username"> <strong>{{ username }} </strong></div>
+      <div v-if="date" class="tree-menu-comment-date"><em>{{ moment.unix(date).format('MMM Do YYYY') }}</em></div>
+      <div v-if="content" class="tree-menu-comment" v-html="content"></div>
     </div>
     <Comments
       v-for="comment in comments"
@@ -31,7 +30,7 @@ export default {
   computed: {
     indent () {
       return {
-        margin: `0px 0px 0px ${this.depth * 10}px`
+        margin: `0px 0px 0px ${this.depth * 5}px`
       }
     }
   }
@@ -57,7 +56,5 @@ export default {
       background:#e9e9e9;
     }
   }
-  .tree-menu:first-child{
-    display:none;
-  }
+
 </style>

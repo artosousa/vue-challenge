@@ -21,7 +21,9 @@
                 <div class="article-content-comments-count">
                     {{ this.post.comments_count }}   Comments
                 </div>
-                <Comments :content="this.tree.comments.content" :comments="this.tree.comments" :username="this.tree.comments.user" :depth="-1"></Comments>
+                <div class="article-content-comments-tree">
+                    <Comments :comments="this.post.comments" :depth="-1"></Comments>
+                </div>
             </div>
             <pre><code>{{ this.post }}</code></pre>
         </div>
@@ -50,7 +52,7 @@ export default {
   created () {
     this.loadPost().then(({data}) => {
       this.post = data
-      this.tree = this.post
+      console.log(this.post)
     })
   },
   components: {
@@ -58,9 +60,9 @@ export default {
   }
 }
 </script>
-<style scroped lang="scss">
+<style lang="scss">
     .article{
-        max-width: 650px;
+        max-width: 860px;
         position: relative;
         margin: 0px auto;
         .article-details{
