@@ -38,7 +38,7 @@ export default {
     color: #42b983;
   }
   .vid{
-    max-width: 650px;
+    max-width: 860px;
     position: relative;
     margin: 0px auto 25px auto;
 

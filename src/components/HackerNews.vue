@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>Recent Hacker News:</h1>
-
         <div v-bind:key="article.id" v-for="article in articles">
             <HackerNewsItem v-bind:article="article"  />
         </div>
