@@ -53,6 +53,7 @@
             this.loadPost().then(({data}) => {
                 this.post = data
                 this.tree = this.post
+                console.log(this.tree)
             })
         },
         components:{
